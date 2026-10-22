@@ -38,16 +38,28 @@ class Home extends StatelessWidget {
       },
     ];
 
+    void afficherMessage(String message) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(message),
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Ma Garderie'),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              afficherMessage('Rechercher un menu');
+            },
             icon: const Icon(Icons.search),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              afficherMessage('Aucune notification');
+            },
             icon: const Icon(Icons.notifications),
           ),
         ],
@@ -60,18 +72,21 @@ class Home extends StatelessWidget {
               title: const Text('Accueil'),
               onTap: () {
                 Navigator.pop(context);
+                afficherMessage('Accueil');
               },
             ),
             ListTile(
               title: const Text('Menus'),
               onTap: () {
                 Navigator.pop(context);
+                afficherMessage('Menus');
               },
             ),
             ListTile(
-              title: const Text('À propos'),
+              title: const Text('A propos'),
               onTap: () {
                 Navigator.pop(context);
+                afficherMessage('A propos');
               },
             ),
           ],
@@ -113,6 +128,9 @@ class Home extends StatelessWidget {
                       ),
                     ),
                     subtitle: Text(menu['description']),
+                    onTap: () {
+                      afficherMessage(menu['titre']);
+                    },
                   ),
                 );
               },
@@ -121,7 +139,9 @@ class Home extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          afficherMessage('Ajouter un menu');
+        },
         child: const Icon(Icons.add),
       ),
     );
