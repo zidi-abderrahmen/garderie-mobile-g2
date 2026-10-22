@@ -65,32 +65,34 @@ class Home extends StatelessWidget {
         ],
       ),
       drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            ListTile(
-              title: const Text('Accueil'),
-              onTap: () {
-                Navigator.pop(context);
-                afficherMessage('Accueil');
-              },
-            ),
-            ListTile(
-              title: const Text('Menus'),
-              onTap: () {
-                Navigator.pop(context);
-                afficherMessage('Menus');
-              },
-            ),
-            ListTile(
-              title: const Text('A propos'),
-              onTap: () {
-                Navigator.pop(context);
-                afficherMessage('A propos');
-              },
-            ),
-          ],
-        ),
+        child: SafeArea(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              ListTile(
+                title: const Text('Accueil'),
+                onTap: () {
+                  Navigator.pop(context);
+                  afficherMessage('Accueil');
+                },
+              ),
+              ListTile(
+                title: const Text('Menus'),
+                onTap: () {
+                  Navigator.pop(context);
+                  afficherMessage('Menus');
+                },
+              ),
+              ListTile(
+                title: const Text('A propos'),
+                onTap: () {
+                  Navigator.pop(context);
+                  afficherMessage('A propos');
+                },
+              ),
+            ],
+          ),
+        )
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
